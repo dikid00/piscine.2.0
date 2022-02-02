@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabarbas <mabarbas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 19:36:38 by mabarbas          #+#    #+#             */
-/*   Updated: 2022/02/02 20:39:02 by mabarbas         ###   ########.fr       */
+/*   Created: 2022/02/02 20:27:26 by mabarbas          #+#    #+#             */
+/*   Updated: 2022/02/02 21:01:22 by mabarbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 
-int	ft_strlen(char **str, int size, char *sep)
+int	ft_strlen(char **str, int size, char *mid)
 {
 	int	i;
 	int	y;
@@ -34,41 +32,51 @@ int	ft_strlen(char **str, int size, char *sep)
 		i++;
 	}
 	i = 0;
-	while (sep[i++] != 0)
+	while (mid[i] != '\0')
+	{
+		i++;
 		r++;
+	}
 	return (r);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	char c;
-	char	*str;
-	int		i;
-	int		len;
-
-	i = 0;
-	len = 0;
-	while (*(*strs))
-		len += ft_strlen(strs, size, sep);
-	printf("%d\n", len);
-	// *strs = malloc(sizeof(char) * len)
-	// while (**strs)
-	// {
-	// 	ft_putstr()
-	// 	ft_putstr(sep);
-	// }
-	return (str);
 }
 
 int	main(void)
 {
-	char	*str;
-	char	**sa;
+	char	*str = NULL;
+	char	**sa = NULL;
+	int		y;
+	char	c;
+	int		i;
 
-	sa[0] = "123456";
-	sa[1] = "abcde";
-	sa[2] = "*+-=";
+	c = 48;
+	y = 6;
+	i = 0;
+	while (y > 0)
+	{
+		sa[0][i] = c;
+		c++;
+		i--;
+	}
+	c = 97;
+	y = 5;
+	i = 0;
+	while (y > 0)
+	{
+		sa[1][i] = c;
+		c++;
+		i--;
+	}
+	c = 40;
+	y = 4;
+	i = 0;
+	while (y > 0)
+	{
+		sa[2][i] = c;
+		c++;
+		i--;
+	}
 	str = "-, ";
-	str = ft_strjoin(3, sa, str);
-	printf("%s\n", str);
+	y = ft_strlen(sa, 3, str);
+	printf("%d", y);
+	return (0);
 }
